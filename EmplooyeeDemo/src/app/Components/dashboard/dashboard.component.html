@@ -1,0 +1,80 @@
+
+<nav class="navbar navbar-light bg-light">
+  <a >Navbar</a>
+  <span>Name : {{fullname}}</span>
+  
+
+  <form class="form-inline">
+    <input class="form-control " type="search" placeholder="Search" aria-label="Search">
+    <button class="btn btn-outline-success " type="submit">Search</button>
+  </form>
+ 
+  <span>{{role}}</span>
+  <button class="btn btn-danger ml-2" style="text-align: right;" (click)="signOut()" >Signout</button>
+</nav>
+
+  <ng-container *ngIf="role==='Admin'">
+<div class="container" >
+  <app-create-employee></app-create-employee> 
+</div>  
+</ng-container>
+<br/>
+
+<h1 style="background-color: aqua;color: brown;align-items: center;text-align: center;"> Employee List</h1>
+<table class="table table-striped" >
+  <thead>
+    <th>
+      ID
+    </th>
+    <th>
+      First Name
+    </th>
+    <th>
+      Last Name
+    </th>
+    <th>
+      Address
+    </th>
+    <th>
+      Salary
+    </th>
+    <th>
+      Username
+    </th>
+    <th>
+      Role
+    </th>
+    <ng-container *ngIf="role==='Admin'">
+    <th>
+      Action
+    </th>
+  </ng-container>
+    
+  </thead>
+  <tbody>
+    <tr *ngFor="let Employee of emp">
+      <td>{{Employee.employeeId}}</td>
+      <td>{{Employee.employeeName}}</td>
+      <td>{{Employee.employeeLastName}}</td>
+      <td>{{Employee.employeeAdress}}</td>
+      <td>{{Employee.employeeSalary}}</td>
+      <td>{{Employee.employeeUsername}}</td>
+      <td>{{Employee.employeeUserType}}</td>
+      <ng-container *ngIf="role==='Admin'">
+      <td >
+      Example single danger button
+      <div class="dropdown">
+        <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Action
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+          <a class="dropdown-item btn-danger" href="#" (click)="editEmployee(Employee.employeeId)">Edit</a>
+          <a class="dropdown-item btn-danger" href="#" (click)="deleteEmployee(Employee.employeeId)">Delete</a>
+          
+        </div>
+      </div>
+      </td> 
+    </ng-container>
+    </tr>
+  </tbody>
+</table>

@@ -1,0 +1,76 @@
+<input #checkbox1 type="checkbox" name="toggle" id="toggle">
+<label for="toggle"></label>
+<div class="container">
+</div>
+
+
+<div class="formAdd">
+    <form autocomplete="off" #myForm="ngForm" (ngSubmit)="myForm.form.valid && submit(myForm)">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <input type="hidden" name="employeeId" [value]="empService.employeeDetail.employeeId">
+ 
+                    <label for="name" class="float-left">Name</label>
+                    <div *ngIf="employeeName.invalid && (employeeName.touched || employeeName.dirty)" class="float-right">
+                        <p class="text-danger">Required</p>
+                    </div>
+                    <input type="text" name="employeeName" class="form-control" placeholder="Enter Name" #employeeName="ngModel" [(ngModel)]="empService.employeeDetail.employeeName" required>
+                </div>
+                <div class="col-md-4">
+                    <label for="name" class="float-left">Last Name</label>
+                    <div *ngIf="employeeLastName.invalid && (employeeLastName.touched || employeeLastName.dirty)" class="float-right">
+                        <p class="text-danger">Required</p>
+                    </div>
+                    <!-- <input type="text" name="employeeLastName" class="form-control" placeholder="Enter Last Name" #employeeLastName="ngModel" [(ngModel)]="empService.employeeDetail.employeeLastName" required> -->
+                    <input type="text" name="employeeLastName" class="form-control" placeholder="Enter Last Name" #employeeLastName="ngModel" [(ngModel)]="empService.employeeDetail.employeeLastName" required>
+                </div>
+                <div class="col-md-4">
+                    <label for="name" class="float-left">Address</label>
+                    <div *ngIf="employeeAdress.invalid && (employeeAdress.touched || employeeAdress.dirty)" class="float-right">
+                        <p class="text-danger">Required</p>
+                    </div>
+                    <input type="text" name="employeeAdress" class="form-control" placeholder="Enter Address" #employeeAdress="ngModel" [(ngModel)]="empService.employeeDetail.employeeAdress" required>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <label for="Salary" class="float-left">Salary</label>
+                    <div *ngIf="employeeSalary.invalid && (employeeSalary.touched || employeeSalary.dirty)" class="float-right">
+                        <p class="text-danger">Required</p>
+                    </div>
+                    <input type="text" name="employeeSalary" class="form-control" placeholder="Enter Salary" #employeeSalary="ngModel" [(ngModel)]="empService.employeeDetail.employeeSalary" required> 
+                </div>
+                <div class="col-md-4">
+                    <label for="Username" class="float-left">Username</label>
+                    <div *ngIf="employeeUsername.invalid && (employeeUsername.touched || employeeUsername.dirty)" class="float-right">
+                        <p class="text-danger">Required</p>
+                    </div>
+                    <input type="text" name="employeeUsername" class="form-control" placeholder="Enter Username" #employeeUsername="ngModel" [(ngModel)]="empService.employeeDetail.employeeUsername" required>
+                </div>
+
+                <div *ngIf="!isShowDiv" class="col-md-4" id="divPass">
+                    <label for="Password" class="float-left">Password</label>
+                    <div *ngIf="employeePassword.invalid && (employeePassword.touched || employeePassword.dirty)" class="float-right">
+                        <p class="text-danger">Required</p>
+                    </div>
+                    <input type="text" name="employeePassword" class="form-control" placeholder="Enter Password" #employeePassword="ngModel" [(ngModel)]="empService.employeeDetail.employeePassword" >
+                </div>
+            </div>      
+ 
+            <div class="row mt-3">
+                <div class="col-md-8"></div>
+                <div class="col-md-2">
+                    <button type="submit" class="btn btn-success btn-block">Save</button>
+                </div>
+                <div class="col-md-2">
+                    <button type="reset" class="btn btn-danger btn-block">Cancel</button>
+                </div>
+            </div>
+        </div>
+ 
+    </form>
+ </div>
+            
+ 
+  
