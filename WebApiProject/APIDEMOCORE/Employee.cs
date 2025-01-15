@@ -20,7 +20,7 @@ namespace APIDEMOCORE
         public DateTime? ExpiryTime { get; set; }
         public string ResetPasswordToken { get; set; }
         public DateTime? ResetPassExpiry { get; set; }
-        public DateTime? ResetPassExpiry33333 { get; set; }
+        public DateTime? ResetPassExpiry22222 { get; set; }
         
     }
 }
